@@ -10,8 +10,8 @@ const Sidebar = () => {
     <>
       <div className="sidebar">
         <div className="top-header">
-          <img className="menu" src={assests.menu_icon} alt="" onClick={() => SetExtended(!extended)} />
-          <div className="new-chat">
+          <img className="menu mt-3 ms-4" src={assests.menu_icon} alt="" onClick={() => SetExtended(!extended)} />
+          <div className="new-chat mt-5 mx-4 px-3">
             <img src={assets.plus_icon} alt="" />
              {extended ?  <p className="">New Chat</p> : null }
           </div>

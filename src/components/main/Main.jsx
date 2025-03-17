@@ -43,15 +43,16 @@ const Main = () => {
 
                 <div className="main-bottom">
                     <div className="search-box">
-                        <input type="text" placeholder='Enter a propmt here' />
+                        <input type="text" placeholder='Enter a prompt here' />
 
-                        <div>
+                        <div className='input-icons'>
                             <img src={assets.gallery_icon} alt="" /><img src={assets.mic_icon} alt="" /><img src={assets.send_icon} alt="" />
                         </div>
-                        <p className='bottom-info'>
+                       
+                    </div>
+                     <p className='bottom-info'>
                             Gemini may display innacurate information, so please check before using it. Your information is safe with us 
                         </p>
-                    </div>
                 </div>
             </div>
         </div>
