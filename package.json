@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.0",
     "bootstrap": "^5.3.3",
+    "generative-ai": "^0.1.4",
+    "googleapis": "^146.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sass": "^1.85.1"
