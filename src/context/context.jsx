@@ -17,10 +17,17 @@ const ContextProvider = (props) =>{
 
 
     const onSent = async (prompt) =>{
-       await run(prompt)
+        SetResultData("");
+        SetLoading(true);
+        SetShowResult(true);
+        SetRecentPrompt(input);
+       const response = await run(input);
+       SetResultData(response);
+       SetLoading(false);
+       SetInput("")
     }
 
-    onSent("what is react js ?")
+    // onSent("what is react js ?")
 
     const contextValue = {
         previousPrompts,
