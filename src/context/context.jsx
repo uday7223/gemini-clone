@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 import run from "../config/gemini";
 
 
-export const Context = createContext();
 
 const ContextProvider = (props) =>{
 
@@ -13,16 +12,28 @@ const ContextProvider = (props) =>{
   const [loading, SetLoading] = useState(false);
   const [resultData, SetResultData] = useState(false);
 
-
+  const delayPara = (index, nextWord) => {
+    setTimeout(() => {
+        SetResultData((prev)=> prev+nextWord)
+    },75*index)
+  };
 
 
     const onSent = async (prompt) =>{
-        SetResultData("");
+        SetResultData("");                       
         SetLoading(true);
         SetShowResult(true);
         SetRecentPrompt(input);
+        SetPreviousPrompts((prev) => [...prev, input]);
        const response = await run(input);
-       SetResultData(response);
+       const newResponse = response.replace(/\*\*(.*?)\*\*/g, '<b>$1</b><br>');
+
+       let newResponse2 = newResponse.split("*").join("<br>");
+       let newResponseArray = newResponse2.split(" ");
+       for (let i=0; i<newResponseArray.length; i++) {
+         const nextWord = newResponseArray[i];
+         delayPara(i, nextWord+" ");
+       }
        SetLoading(false);
        SetInput("")
     }
@@ -56,3 +67,5 @@ const ContextProvider = (props) =>{
 }
 
 export default ContextProvider
+
+export const Context = createContext();

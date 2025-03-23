@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import assests from "../../assets/assets";
 import assets from "../../assets/assets";
 import './sidebar.scss'
+import { Context } from "../../context/context";
 
 const Sidebar = () => {
       const [extended, SetExtended] = useState(false)
+      // const {onsent, previousPrompts, SetRecentPrompt} = useContext(Context);
 
   return (
     <>

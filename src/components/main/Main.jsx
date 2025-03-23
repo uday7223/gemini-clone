@@ -5,19 +5,12 @@ import { Context } from "../../context/context";
 
 const Main = () => {
   const {
-    previousPrompts,
-    SetPreviousPrompts,
-    showResult,
-    SetShowResult,
     onSent,
     loading,
-    SetLoading,
     resultData,
-    SetResultData,
     input,
     SetInput,
     recentPrompt,
-    SetRecentPrompt,
   } = useContext(Context);
 
   return (
@@ -70,16 +63,16 @@ const Main = () => {
             </>
           ) : (
             <>
-              <div className="result">
+              <div className="result position-relative">
 
-              <div className="result-title d-flex align-items-center justify-content-end">
-                     <p className="mt-3 me-2">{recentPrompt}</p>
+              <div className="result-title">
+                    
                     <img className="user-icon" style={{width:"40px", borderRadius:"50px"}} src={assets.user_icon} alt="" />
-                   
+                    <p className="mt-3 me-2">{recentPrompt}</p>
                 </div>
 
-                <div className="result-data d-flex align-items-center">
-                    <img src={assets.gemini_icon} alt="" />
+                <div className="result-data">
+                    <img src={assets.gemini_icon} alt=""  />
                     {loading ? <div className="loader">
                         <hr />
                         <hr />
@@ -104,11 +97,11 @@ const Main = () => {
                   SetInput(e.target.value);
            
                 }}
-                // onKeyDown={(e) => {e.key === "Enter" &&
+                onKeyDown={(e) => {e.key === "Enter" &&
 
-                //   onSent(input);
-                //   SetRecentPrompt(input)
-                // }}
+                  onSent(input);
+                  // SetRecentPrompt(input)
+                }}
                 value={input}
                 placeholder="Enter a prompt here"
               />
