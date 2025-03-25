@@ -73,12 +73,16 @@ const Main = () => {
 
                 <div className="result-data">
                     <img src={assets.gemini_icon} alt=""  />
-                    {loading ? <div className="loader">
+                    {loading ? 
+                    <>
+                    <div className="loader">
                         <hr />
                         <hr />
                         <hr />
 
-                    </div> : 
+                    </div> 
+                    </>
+                    : 
                     
                     <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
 

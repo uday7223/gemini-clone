@@ -23,7 +23,7 @@ const Sidebar = () => {
           />
           <div className="new-chat mt-5 mx-4 px-3">
             <img src={assets.plus_icon} alt="" />
-            {extended ? <p className="">New Chat</p> : null}
+            {extended ? <p className="ms-2">New Chat</p> : null}
           </div>
 
           {extended ? (
@@ -35,11 +35,12 @@ const Sidebar = () => {
               {previousPrompts.map((prompt, index) => {
                 return (
                   <div
+                  key={index}
                     onClick={() => loadPrompt(prompt)}
                     className="recent-entry"
                   >
                     <img src={assets.message_icon} alt="" />
-                    <p key={index}>{prompt.slice(0, 20)}...</p>
+                    <p>{prompt.slice(0, 20)}...</p>
                   </div>
                 );
               })}
