@@ -1,7 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Access the API key from the environment variable
-console.log(import.meta.env.VITE_API_KEY);
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
