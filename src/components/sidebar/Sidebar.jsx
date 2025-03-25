@@ -1,55 +1,65 @@
 import React, { useContext, useState } from "react";
-import assests from "../../assets/assets";
 import assets from "../../assets/assets";
-import './sidebar.scss'
+import "./sidebar.scss";
 import { Context } from "../../context/context";
-
 const Sidebar = () => {
-      const [extended, SetExtended] = useState(false)
-      // const {onsent, previousPrompts, SetRecentPrompt} = useContext(Context);
+  const [extended, SetExtended] = useState(false);
+  const { onSent, previousPrompts, SetRecentPrompt } = useContext(Context);
+
+  const loadPrompt = async (prompt) => {
+    SetRecentPrompt(prompt);
+    await onSent(prompt, true);
+  };
 
   return (
     <>
       <div className="sidebar">
         <div className="top-header">
-          <img className="menu mt-3 ms-4" src={assests.menu_icon} alt="" onClick={() => SetExtended(!extended)} />
+          <img
+            className="menu mt-3 ms-4"
+            src={assets.menu_icon}
+            alt=""
+            onClick={() => SetExtended(!extended)}
+          />
           <div className="new-chat mt-5 mx-4 px-3">
             <img src={assets.plus_icon} alt="" />
-             {extended ?  <p className="">New Chat</p> : null }
+            {extended ? <p className="">New Chat</p> : null}
           </div>
 
+          {extended ? (
+            <div className="recent">
+              <p className="recent-title">Recent</p>
 
-          {extended ?
-          
-          <div className="recent">
-          <p className="recent-title">Recent</p>
-          <div className="recent-entry">
-              <img src={assets.message_icon} alt="" />
-              <p>What is React JS ?</p>
+              {/* <p>What is React JS ?</p> */}
+
+              {previousPrompts.map((prompt, index) => {
+                return (
+                  <div
+                    onClick={() => loadPrompt(prompt)}
+                    className="recent-entry"
+                  >
+                    <img src={assets.message_icon} alt="" />
+                    <p key={index}>{prompt.slice(0, 20)}...</p>
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="bottom">
+          <div className="bottom-item">
+            <img src={assets.question_icon} alt="" />
+            {extended ? <p>Help</p> : null}
           </div>
-        </div>
-
-        : null
-        }
-        
-        </div>
-
-        
-        <div className="bottom">     
-            <div className="bottom-item">
-                <img src={assets.question_icon} alt="" />
-              {extended ?   <p>Help</p> : null}
-            </div>
-            <div className="bottom-item">
-                <img src={assets.history_icon} alt="" />
-                {extended ?   <p>Activity</p> : null}
-            </div>
-            <div className="bottom-item">
-                <img src={assets.setting_icon} alt="" />
-                {extended ?     <p>Settings</p> : null}
-
-             
-            </div>
+          <div className="bottom-item">
+            <img src={assets.history_icon} alt="" />
+            {extended ? <p>Activity</p> : null}
+          </div>
+          <div className="bottom-item">
+            <img src={assets.setting_icon} alt="" />
+            {extended ? <p>Settings</p> : null}
+          </div>
         </div>
       </div>
     </>
