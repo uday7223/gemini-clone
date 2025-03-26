@@ -4,6 +4,19 @@
     flex-direction: column;
     justify-content:space-between;
     background-color:#f0f4f9;
+    animation: sidebarAnimation 1s ease-in-out;
+
+
+
+    @keyframes sidebarAnimation {
+        0%{
+            background-color:#6f747a;    
+        }
+        100%{
+            background-color:#f0f4f9;
+        }
+        
+    }
     img{
         width: 20px;
     }
@@ -25,6 +38,7 @@
         cursor: pointer;
         font-size: 14px;
         color: grey;
+
         &:hover{
             background-color: #e2e6eb;
         }
@@ -39,30 +53,48 @@
     .recent{
         display: flex;
         flex-direction:column;
+       animation: FadeIn 1s;
+
+
+
         
         .recent-title{
             margin: 10px;
         }
-        .recent-entry{
-            display: flex;
-            align-items: center;
-            padding: 10px 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #282828;
-            margin:10px ;
-            p{
-                text-align: center;
-                line-height: 0%;
-                margin: auto;
-                margin-left:8px;
+
+        .recent-list{
+                // max-height: 60vh !important;
+                // height: auto !important;
+                // overflow: hidden;
+                // overflow-y:scroll;
+
+
+            .recent-entry{
+                display: flex;
+                align-items: center;
+                padding: 10px 18px;
+                border-radius: 50px;
+                cursor: pointer;
+                font-size: 14px;
+                color: #282828;
+                margin:10px ;
+    
+                p{
+                    text-align: center;
+                    line-height: 0%;
+                    margin: auto;
+                    margin-left:8px;
+                }
+    
+                &:hover{
+                    background-color: #e2e6eb;
+                }
             }
 
-            &:hover{
-                background-color: #e2e6eb;
-            }
         }
+
+
+     
     }
 
     .bottom{
@@ -87,6 +119,13 @@
             
         }
 
+    }
+}
+
+//media queries
+@media screen and (max-width: 768px){
+    .sidebar{
+        display: none;
     }
 }
 

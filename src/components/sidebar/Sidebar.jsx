@@ -33,6 +33,7 @@ const Sidebar = () => {
 
               {/* <p>What is React JS ?</p> */}
 
+              <div className="recent-list">
               {previousPrompts.map((prompt, index) => {
                 return (
                   <div
@@ -45,6 +46,7 @@ const Sidebar = () => {
                   </div>
                 );
               })}
+              </div>
             </div>
           ) : null}
         </div>

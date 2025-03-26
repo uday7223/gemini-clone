@@ -111,6 +111,8 @@ const Main = () => {
               />
 
               <div className="input-icons">
+
+                
                 <img src={assets.gallery_icon} alt="" />
                 <img src={assets.mic_icon} alt="" />
                 <img
