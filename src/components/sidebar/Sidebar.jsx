@@ -29,7 +29,8 @@ const Sidebar = () => {
 
           {extended ? (
             <div className="recent">
-              <p className="recent-title">Recent</p>
+              {previousPrompts.length!==0 ?  <p className="recent-title">Recent</p>
+ : null}
 
               {/* <p>What is React JS ?</p> */}
 

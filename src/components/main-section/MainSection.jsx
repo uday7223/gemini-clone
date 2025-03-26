@@ -124,7 +124,7 @@ const MainSection = () => {
                 />
               </div>
             </div>
-            <p className="bottom-info">
+            <p className="bottom-info text-center w-100">
               Gemini may display innacurate information, so please check before
               using it. Your information is safe with us
             </p>
