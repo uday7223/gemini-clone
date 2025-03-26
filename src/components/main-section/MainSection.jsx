@@ -3,7 +3,7 @@ import "./main.scss";
 import assets from "../../assets/assets";
 import { Context } from "../../context/context";
 
-const Main = () => {
+const MainSection = () => {
   const {
     onSent,
     loading,
@@ -135,4 +135,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainSection;

@@ -1,4 +1,4 @@
-import Main from "./components/main/main"
+import MainSection from "./components/main-section/MainSection"
 import Sidebar from "./components/sidebar/Sidebar"
 
 const  App = () =>{
@@ -6,7 +6,7 @@ return(
   <>
 
   <Sidebar/>
-  <Main/>
+  <MainSection/>
   </>
 )
 }
